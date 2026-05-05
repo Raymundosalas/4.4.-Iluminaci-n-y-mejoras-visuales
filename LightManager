@@ -1,0 +1,20 @@
+using UnityEngine;
+
+public class LightManager : MonoBehaviour
+{
+    public Light directionalLight;
+    public Color[] levelColors;
+
+    void Start()
+    {
+        int levelIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+
+        if (levelColors.Length > 0)
+        {
+            directionalLight.color = levelColors[levelIndex % levelColors.Length];
+        }
+
+        directionalLight.intensity = 1.2f;
+        RenderSettings.ambientIntensity = 0.8f;
+    }
+}
