@@ -1,0 +1,20 @@
+using UnityEngine;
+
+public class BallEffects : MonoBehaviour
+{
+    public ParticleSystem hitEffect;
+    public TrailRenderer trail;
+
+    void Start()
+    {
+        trail.enabled = true;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            Instantiate(hitEffect, transform.position, Quaternion.identity);
+        }
+    }
+}
