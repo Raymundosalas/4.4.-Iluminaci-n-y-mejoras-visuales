@@ -1,0 +1,12 @@
+using UnityEngine;
+
+public class SkyboxChanger : MonoBehaviour
+{
+    public Material[] skyboxes;
+
+    void Start()
+    {
+        int index = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        RenderSettings.skybox = skyboxes[index % skyboxes.Length];
+    }
+}
