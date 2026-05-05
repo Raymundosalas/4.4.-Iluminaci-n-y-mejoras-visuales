@@ -1,0 +1,15 @@
+using UnityEngine;
+
+public class PlatformRotator : MonoBehaviour
+{
+    public float rotationSpeed = 200f;
+
+    void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            float move = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
+            transform.Rotate(0, -move, 0);
+        }
+    }
+}
